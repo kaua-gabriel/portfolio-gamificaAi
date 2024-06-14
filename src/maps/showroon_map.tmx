@@ -28,6 +28,20 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="13" name="personagens">
+  <object id="63" name="player_spawn" x="461.75" y="562">
+   <point/>
+  </object>
+  <object id="64" name="NPC_A" x="239.58" y="233.739">
+   <point/>
+  </object>
+  <object id="65" name="NPC_B" x="462.818" y="233.455">
+   <point/>
+  </object>
+  <object id="66" name="NPC_C" x="687.478" y="233.522">
+   <point/>
+  </object>
+ </objectgroup>
  <layer id="2" name="paredes" width="29" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -52,20 +66,6 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="13" name="personagens">
-  <object id="63" name="player_spawn" x="461.75" y="562">
-   <point/>
-  </object>
-  <object id="64" name="NPC_A" x="239.58" y="233.739">
-   <point/>
-  </object>
-  <object id="65" name="NPC_B" x="462.818" y="233.455">
-   <point/>
-  </object>
-  <object id="66" name="NPC_C" x="687.478" y="233.522">
-   <point/>
-  </object>
- </objectgroup>
  <layer id="8" name="quadro" width="29" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -186,12 +186,12 @@
   <object id="49" name="mesa de estudo" x="799.818" y="265.636" width="31.8182" height="36.1818"/>
   <object id="53" name="caixa" x="479.25" y="360.477" width="31" height="20.7727"/>
   <object id="55" name="balcão" x="406.333" y="395.576" width="25.6667" height="62.7576"/>
-  <object id="56" name="balcão" x="407.667" y="420.333" width="113.333" height="38"/>
+  <object id="56" name="balcão" x="407.667" y="420.333" width="113.333" height="39.5"/>
   <object id="57" name="balcão" x="496" y="395.061" width="26" height="63.6061"/>
   <object id="58" name="moça do caixa" x="447.818" y="395.455" width="32.3636" height="37.0909"/>
   <object id="61" name="vazo da flor" x="100.455" y="119.841" width="23.0909" height="21.8182"/>
  </objectgroup>
- <layer id="9" name="blocosColisores" width="29" height="20" opacity="0.03" offsetx="138" offsety="100">
+ <layer id="9" name="blocosColisores" width="29" height="20" opacity="0" offsetx="138" offsety="100">
   <properties>
    <property name="solid" type="bool" value="true"/>
   </properties>
