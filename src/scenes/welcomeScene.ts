@@ -79,8 +79,8 @@ export class welcomeScene extends Scene {
         this.input.keyboard.on("press", (event) => {
             // Caso a tecla pressionada for "Enter", deve ir para a próxima cena
             if (event.key == Keys.Enter) {
-                // Direciona para a cena Historia
-                engine.goToScene("historia")
+                // Direciona para a cena 
+                engine.goToScene("case")
             }
         })
     }

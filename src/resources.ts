@@ -1,6 +1,6 @@
 import { TiledResource, } from "@excaliburjs/plugin-tiled";
 
-import { ImageFiltering, ImageSource, Loader } from "excalibur";
+import { ImageFiltering, ImageSource, Loader, Sound } from "excalibur";
 import sword from "./images/sword.png";
 import logo from "./images/logo.png"
 import logoVertical from "./images/logo-vertical.png"
@@ -14,6 +14,9 @@ import tsxBibliotecaPath from "./maps/tileset_biblioteca.tsx?url"
 
 import tmxMapaPath from "./maps/showroon_map.tmx?url"
 
+import ritmada from "./sound/ritmada_zelda.mp3";
+import classico from "./sound/zelda.mp3";
+
 // import do player
 import PlayerSpritePath from "./sprites/player.png"
 // import do npc
@@ -25,6 +28,9 @@ export const Resources = {
   PlayerSpriteSheet: new ImageSource(PlayerSpritePath, { filtering: ImageFiltering.Pixel }),
   NpcSpritePach: new ImageSource(NpcSpritePach, { filtering: ImageFiltering.Pixel }),
   LogoVertical: new ImageSource(logoVertical),
+  RitmadaBGM: new Sound(ritmada),
+  ClassicBGM: new Sound(classico),
+
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [
       { path: "showroon_map.tmx", output: tmxMapaPath },

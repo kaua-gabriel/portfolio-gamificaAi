@@ -15,7 +15,7 @@ export class Player extends Actor {
         super({
             pos: posicao,
             width: 35,
-            height: 50,
+            height: 35,
             name: "Jogador",
             color: Color.Red,
             collisionType: CollisionType.Active
@@ -55,7 +55,7 @@ export class Player extends Actor {
             // detectar qual tecla esta pressionada
             switch (event.key) {
 
-        // mover para esquerda
+                // mover para esquerda
                 // define  a velocidade x para negativa que significa movimentar o player para a esquerda
                 case Keys.Left:
                 case Keys.A:
@@ -69,7 +69,7 @@ export class Player extends Actor {
                     this.ultimaDirecao = "left"
                     break;
 
-         // mover para direita
+                // mover para direita
                 // define  a velocidade x para positiva que significa movimentar o player para a direita
                 case Keys.Right:
                 case Keys.D:
@@ -81,7 +81,7 @@ export class Player extends Actor {
                     this.ultimaDirecao = "right"
                     break;
 
-        // mover para cima
+                // mover para cima
                 // define  a velocidade y para negativa que significa movimentar o player para a cima
                 case Keys.Up:
                 case Keys.W:
@@ -93,7 +93,7 @@ export class Player extends Actor {
                     this.ultimaDirecao = "up"
                     break;
 
-        // mover para baixo
+                // mover para baixo
                 // define  a velocidade y para negativa que significa movimentar o player para a baixo
                 case Keys.Down:
                 case Keys.S:
@@ -297,24 +297,70 @@ export class Player extends Actor {
                 this.graphics.use(this.ultimaDirecao + "-idle")
             }
         })
-    }
 
-    onPostCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
-        // indicar que tem um objeto proximo   
-        this.temObjetoProximo = true
+        // configurar o playerpara monitorar event "press" -> pressionar
+        engine.input.keyboard.on("press", (event) => {
+            // se a tecla pressionada for de F e tiver objeto proximo
+            if (event.key == Keys.F && this.temObjetoProximo) {
+                console.log("intaragiuuuu :");
+                // indetificar o alvo da indentificação
+                if (this.ultimoColisor?.owner.name == "mesa_stand_a") {
+                    console.log("Essa é a mesa A");
+
+                    // vai para a cena passando qual o objeto da interação 
+                    engine.goToScene("case", {
+                        sceneActivationData: {
+                            // passa o nome do Actor que interagiu com o Player
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+
+
+                if (this.ultimoColisor?.owner.name == "mesa_stand_b") {
+                    console.log("Essa é a mesa B");
+                    engine.goToScene("case", {
+                        sceneActivationData: {
+                            // passa o nome do Actor que interagiu com o Player
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+
+
+                if (this.ultimoColisor?.owner.name == "mesa_stand_c") {
+                    console.log("Essa é a mesa C");
+                    engine.goToScene("case", {
+                        sceneActivationData: {
+                            // passa o nome do Actor que interagiu com o Player
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+                }
+
+
+
+
+            }
+    })
+}
+
+onPostCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
+    // indicar que tem um objeto proximo   
+    this.temObjetoProximo = true
 
         // registrar o ultimo objeto colidido
         this.ultimoColisor = other
-    }
+}
 
-    onPreUpdate(engine: Engine<any>, delta: number): void {
-        // detectar se o player esta distante do ultimo objeto
-        if(this.ultimoColisor && this.pos.distance(this.ultimoColisor.worldPos) > 45) {
-            // marcar que o objeto não esta proximo
-            this.temObjetoProximo = false
+onPreUpdate(engine: Engine<any>, delta: number): void {
+    // detectar se o player esta distante do ultimo objeto
+    if(this.ultimoColisor && this.pos.distance(this.ultimoColisor.worldPos) > 45) {
+    // marcar que o objeto não esta proximo
+    this.temObjetoProximo = false
 
-            console.log ("esta longe");
-        }
+    console.log("esta longe");
+}
 
     }
 

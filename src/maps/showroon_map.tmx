@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="67">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="68">
  <tileset firstgid="1" source="tileset_paredes.tsx"/>
  <tileset firstgid="8285" source="tileset_generic.tsx"/>
  <tileset firstgid="9533" source="tileset_estoque.tsx"/>
@@ -100,7 +100,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,10163,10164,10133,10134,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,8291,0,0,0,0,0,0,8291,10179,10180,10149,10150,0,0,8291,0,0,0,0,0,9879,0,0,0,
 0,0,0,0,0,8307,8386,8387,8388,0,0,0,8307,8386,8387,8388,0,0,0,8307,8386,8387,8388,0,0,9895,0,0,0,
-0,0,0,0,0,9090,8402,8403,8404,0,0,0,9090,8402,8403,8404,0,0,0,9090,8402,8403,8404,0,0,9924,0,0,0,
+0,0,0,0,0,0,8402,8403,8404,0,0,0,0,8402,8403,8404,0,0,0,0,8402,8403,8404,0,0,9924,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9533,0,0,0,0,9535,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,9539,9540,9541,0,0,0,0,0,0,0,0,9258,0,0,0,0,0,0,9853,9854,9855,0,0,0,0,
@@ -168,9 +168,9 @@
   <object id="12" name="mesa_stand_c" x="650.182" y="239.932" width="75.4545" height="42"/>
   <object id="14" name="mesa_stand_b" x="425.875" y="240" width="76" height="41.5"/>
   <object id="16" name="mesa_stand_a" x="202.25" y="240.25" width="75.75" height="41.5"/>
-  <object id="18" name="PC_A" x="159.667" y="233.667" width="32" height="53.3333"/>
-  <object id="20" name="PC_B" x="383.5" y="233.958" width="32" height="53.0417"/>
-  <object id="21" name="PC_C" x="609" y="233.917" width="32" height="52.0833"/>
+  <object id="18" name="PC_A" x="159.667" y="233.667" width="32" height="21.5378"/>
+  <object id="20" name="PC_B" x="383.5" y="233.958" width="32" height="22.2235"/>
+  <object id="21" name="PC_C" x="608.273" y="233.735" width="32" height="22.4128"/>
   <object id="25" name="poltron_1" x="425.75" y="175.784" width="44" height="26.2159"/>
   <object id="26" name="poltron_2" x="490.375" y="175.659" width="43.25" height="26.2159"/>
   <object id="28" name="estante de jogos" x="405.75" y="107.5" width="116" height="37.75"/>
