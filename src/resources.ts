@@ -17,6 +17,12 @@ import tmxMapaPath from "./maps/showroon_map.tmx?url"
 import ritmada from "./sound/ritmada_zelda.mp3";
 import classico from "./sound/zelda.mp3";
 
+
+import AmazingLogo from "./images/Amazing.jpg";
+import CapivaraLogo from "./images/capivara.jpg";
+import NãoAguenta from "./images/não aguenta.jpg";
+
+
 // import do player
 import PlayerSpritePath from "./sprites/player.png"
 // import do npc
@@ -30,6 +36,10 @@ export const Resources = {
   LogoVertical: new ImageSource(logoVertical),
   RitmadaBGM: new Sound(ritmada),
   ClassicBGM: new Sound(classico),
+  AmazingJPG: new ImageSource(AmazingLogo),
+  CapivaraLogoJPG: new ImageSource(CapivaraLogo),
+  NãoAguentaJPG: new ImageSource(NãoAguenta),
+
 
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [

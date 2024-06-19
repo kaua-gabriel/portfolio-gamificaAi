@@ -17,15 +17,16 @@ body {
   position: relative;
 }
 
-.gamificacao{
+.gamificacao {
   right: 5%;
 }
 
-.sobre-gamifica{
+.sobre-gamifica {
   left: 5%;
 }
 
-.sobre-gamifica, .gamificacao{
+.sobre-gamifica,
+.gamificacao {
   width: 500px;
   height: 600px;
 
@@ -40,17 +41,52 @@ body {
   font-family: "Anta";
 
   position: absolute;
-  top: 10%;  
+  top: 10%;
 }
 
-.sobre-gamifica h2, .gamificacao h2{
+.sobre-gamifica h2,
+.gamificacao h2 {
   margin-bottom: 40px;
 
   font-size: 30px;
   text-align: center;
 }
 
-.sobre-gamifica p, .gamificacao p{
+.sobre-gamifica p,
+.gamificacao p {
+  font-size: 16px;
+  text-align: justify;
+
+  line-height: 2;
+}
+
+.texto-case p {
+  width: 500px;
+  height: 600px;
+
+  padding: 40px;
+
+  background-color: #fff;
+
+  border: solid 15px #cf5830;
+  border-radius: 30px;
+
+  color: black;
+  font-family: "Anta";
+
+  position: absolute;
+  top: 10%;
+  left: 5%
+}
+
+.texto-case h2 {
+  margin-bottom: 40px;
+
+  font-size: 30px;
+  text-align: center;
+}
+
+.texto-case p {
   font-size: 16px;
   text-align: justify;
 

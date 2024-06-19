@@ -307,6 +307,8 @@ export class Player extends Actor {
                 if (this.ultimoColisor?.owner.name == "mesa_stand_a") {
                     console.log("Essa é a mesa A");
 
+
+                    
                     // vai para a cena passando qual o objeto da interação 
                     engine.goToScene("case", {
                         sceneActivationData: {
