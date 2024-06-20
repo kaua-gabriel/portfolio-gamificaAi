@@ -18,28 +18,39 @@ import ritmada from "./sound/ritmada_zelda.mp3";
 import classico from "./sound/zelda.mp3";
 
 
-import AmazingLogo from "./images/Amazing.jpg";
-import CapivaraLogo from "./images/capivara.jpg";
-import NãoAguenta from "./images/não aguenta.jpg";
+import amazinglogo from "./images/Amazing.jpg";
+import capivaralogo from "./images/capivara.jpg";
+import naoaguenta from "./images/não aguenta.jpg";
 
 
 // import do player
 import PlayerSpritePath from "./sprites/player.png"
+
 // import do npc
-import NpcSpritePach from "./sprites/NPC.png"
+import NpcASpritePach from "./sprites/NPCa.png"
+import NpcBSpritePach from "./sprites/NPCb.png"
+import NpcCSpritePach from "./sprites/N"
 
 export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),
+
+  // imagem do player
   PlayerSpriteSheet: new ImageSource(PlayerSpritePath, { filtering: ImageFiltering.Pixel }),
-  NpcSpritePach: new ImageSource(NpcSpritePach, { filtering: ImageFiltering.Pixel }),
+
   LogoVertical: new ImageSource(logoVertical),
   RitmadaBGM: new Sound(ritmada),
   ClassicBGM: new Sound(classico),
-  AmazingJPG: new ImageSource(AmazingLogo),
-  CapivaraLogoJPG: new ImageSource(CapivaraLogo),
-  NãoAguentaJPG: new ImageSource(NãoAguenta),
 
+  // imagem do case 
+  AmazingJPG: new ImageSource(amazinglogo),
+  CapivaraLogoJPG: new ImageSource(capivaralogo),
+  NaoAguentaJPG: new ImageSource(naoaguenta),
+
+  // imagem do NPC
+  NpcASpritePach: new ImageSource(NpcASpritePach, { filtering: ImageFiltering.Pixel }),
+  NpcBSpritePach: new ImageSource(NpcBSpritePach, { filtering: ImageFiltering.Pixel }),
+  NpcCSpritePach: new ImageSource(NpcCSpritePach, { filtering: ImageFiltering.Pixel }),
 
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [

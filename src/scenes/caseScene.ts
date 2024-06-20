@@ -1,125 +1,109 @@
-import { Actor, Color, Engine, FadeInOut, Keys, Resource, Scene, SceneActivationContext, Sprite, Transition, vec } from "excalibur";
+import { Actor, Color, Engine, FadeInOut, Keys, Scene, SceneActivationContext, Sprite, Transition, vec } from "excalibur";
+import { Resources } from "../resources";
 
 export class caseScene extends Scene {
     private objetoInteracao: any
     private elementoTexto?: HTMLElement
     private actorEmpresa?: Actor
-    private listaEmpresa?: Sprite()
+
+    private listaImagens?: Sprite[]
 
     onTransition(direction: "in" | "out"): Transition | undefined {
         return new FadeInOut({
             direction: direction,
             color: Color.Black,
-            duration: 500
+            duration: 1000
         })
     }
-
-
 
     onInitialize(engine: Engine<any>): void {
         this.backgroundColor = Color.Gray
 
-        // criar elemento com a descrição do case
+        // Criar elemento com a descrição do case
         this.elementoTexto = document.createElement("div") as HTMLElement
         this.elementoTexto.classList.add("texto-case")
-        this.elementoTexto.innerHTML = ' <h2>level 1</h2><p>Dinamismo na Aprendizagem: A gamificação torna o processo de aprendizado menos monótono, incentivando o engajamento dos alunos por meio de elementos atrativos.Aumento do Interesse: Ao envolver os alunos, a gamificação gera mais interesse no conteúdo. Competições, conquistas e recompensas motivam os estudantes a se esforçarem mais.Efetividade e Durabilidade: Estudos mostram que alunos expostos à gamificação tiveram um aumento significativo no desempenho em comparação com palestras tradicionais</p>'
 
-        // adicionr o elemento ao container game
+        // Adicionar o elemento ao container game
         let containerGame = document.querySelector(".container-game")
         containerGame?.appendChild(this.elementoTexto)
 
-
-
-
-
-        // ao precionar esc voltar para a exposição
+        // Ao pressionar Esc voltar para a exposição
         this.input.keyboard.on("press", (event) => {
             if (event.key == Keys.Esc) {
-                engine.goToScene("exposição")
+                engine.goToScene("exposicao")
             }
         })
 
-        // criar actor para receber a imagem
+        // Criar actor para receber a imagem
         this.actorEmpresa = new Actor({
             pos: vec(engine.drawWidth - 300, engine.halfDrawHeight - 50)
         })
 
-        // carregar imagens das empresas
-        let imagemEmpresaCara = Resource.AmazingJPG.toSprite()
-        let imagemEmpresaCapivara = Resource.CapivaraLogo.toSprite()
-        let imagemEmpresaAguenta = Resource.NãoAguentaJPG.toSprite()
+        // Carregar imagens das empresas
+        let imagemEmpresaXYZ = Resources.NaoAguentaJPG.toSprite()
+        let imagemEmpresaABC = Resources.CapivaraLogoJPG.toSprite()
+        let imagemEmpresaFastMart = Resources.AmazingJPG.toSprite()
 
-        this.listaImagem = [imagemEmpresaCara, imagemEmpresaCapivara, imagemEmpresaAguenta]
-
-
+        this.listaImagens = [imagemEmpresaXYZ, imagemEmpresaABC, imagemEmpresaFastMart]
     }
 
-
-
     onActivate(context: SceneActivationContext<unknown>): void {
-        // faz a caixa de texto desaparecer ao mudar de cena
+        // Faz a caixa de texto aparecer ao chegar na cena
         this.elementoTexto!.style.opacity = "1"
 
-
-        // pegar dados vindos da cena anterior
+        // Receber os dados passados pela cena anterior
         this.objetoInteracao = context.data
 
-        console.log(this.objetoInteracao);
+        if (this.objetoInteracao.nomeDaMesa == "mesa_stand_a") {
+            // Mesa A detectada
+            this.elementoTexto!.innerHTML = `<h2>XYZ Tech - Transformação Digital e Capacitação na Tecnologia</h2>
+            <p>A empresa enfrentava dificuldades na adoção de novas tecnologias pelos funcionários, resultando em baixa eficiência e resistência às mudanças.</p>
+            <p>A XYZ Tech Solutions implementou uma plataforma de treinamento gamificada, onde os funcionários ganhavam pontos e badges ao completar módulos de treinamento sobre novas tecnologias. Eles podiam ver seu progresso em um leaderboard, incentivando uma competição saudável.</p>            
+            `
 
+            // Inserir o sprite no actor da mesa A
+            this.actorEmpresa?.graphics.add(this.listaImagens![0])
 
-
-
-
-
-        // se for a msea A
-        if (this.objetoInteracao.nomeDoActor == "mesa_stand_a") {
-            
-            this.elementoTexto!.innerHTML = '<h2>level 1</h2><p>Dinamismo na Aprendizagem: A gamificação torna o processo de aprendizado menos monótono, incentivando o engajamento dos alunos por meio de elementos atrativos.Aumento do Interesse: Ao envolver os alunos, a gamificação gera mais interesse no conteúdo. Competições, conquistas e recompensas motivam os estudantes a se esforçarem mais.Efetividade e Durabilidade: Estudos mostram que alunos expostos à gamificação tiveram um aumento significativo no desempenho em comparação com palestras tradicionais</p>'
-        
-            // inserir o sprite no actor da mesa a
-            this.actorEmpresa?.graphics.add(this.listaImagem![0])
-
-            // mudar o zoom da imagem
+            // Mudar o zoom da imagem
             this.actorEmpresa!.graphics.current!.scale = vec(0.2, 0.2)
         }
 
+        if (this.objetoInteracao.nomeDaMesa == "mesa_stand_b") {
+            // Mesa B detectada
+            this.elementoTexto!.innerHTML = `<h2>ABC Finance - Incentivo à Cultura de Inovação</h2>
+            <p>A empresa queria incentivar os funcionários a proporem ideias inovadoras para melhorar processos e produtos, mas havia pouca participação.
+            <p>ABC Finance criou um programa chamado "InovaABC" onde os funcionários podiam submeter ideias e ganhar pontos. As ideias eram votadas pelos colegas e avaliadas por um comitê. Os funcionários com as melhores ideias ganhavam prêmios e reconhecimento trimestral.
+            `
 
+            // Inserir o sprite no actor da mesa A
+            this.actorEmpresa?.graphics.add(this.listaImagens![1])
 
-        // se for a msea B
-        if (this.objetoInteracao.nomeDoActor == "mesa_stand_b") {
-            
-            this.elementoTexto!.innerHTML = 'CASE 2'
-
-            
-            // inserir o sprite no actor da mesa a
-            this.actorEmpresa?.graphics.add(this.listaImagem![1])
-
-            // mudar o zoom da imagem
+            // Mudar o zoom da imagem
             this.actorEmpresa!.graphics.current!.scale = vec(0.2, 0.2)
         }
 
+        if (this.objetoInteracao.nomeDaMesa == "mesa_stand_c") {
+            // Mesa C detectada
+            this.elementoTexto!.innerHTML = `<h2>FastMart - Melhoria na Experiência do Cliente</h2>
+            <p>A empresa de varejo enfrentava problemas com o atendimento ao cliente, resultando em baixa satisfação e retenção de clientes.
+            <p>FastMart lançou uma aplicação interna onde os atendentes ganhavam pontos ao fornecer um excelente atendimento ao cliente, baseado em avaliações dos próprios clientes e supervisores. Os melhores atendentes eram destacados no mural da empresa e recebiam recompensas.
+            `
 
+            // Inserir o sprite no actor da mesa A
+            this.actorEmpresa?.graphics.add(this.listaImagens![2])
 
-
-        // se for a msea C
-        if (this.objetoInteracao.nomeDoActor == "mesa_stand_c") {
-           
-            this.elementoTexto!.innerHTML = 'CASE 3'
-
-            
-            // inserir o sprite no actor da mesa a
-            this.actorEmpresa?.graphics.add(this.listaImagem![2])
-
-            // mudar o zoom da imagem
+            // Mudar o zoom da imagem
             this.actorEmpresa!.graphics.current!.scale = vec(0.2, 0.2)
         }
+
+        // Adiciona o actor da imagem na tela
         this.add(this.actorEmpresa!)
+
     }
 
     onDeactivate(context: SceneActivationContext<undefined>): void {
-        // faz a caixa de texto desaparecer ao mudar de cena
+        // Faz a caixa de texto desaparecer ao mudar de cena
         this.elementoTexto!.style.opacity = "0"
     }
 }
-
 
